@@ -28,11 +28,11 @@ function liriRun(appCommand, userSearch){
     break;
 
     case "do-what-it-says":
-    getRandom();
+    getRandom(userSearch);
     break;
 
     case "spotify-this-song":
-    getSpotify();
+    getSpotify(userSearch);
     break;
         
 
@@ -179,8 +179,8 @@ function getSpotify(songName){
         }
 
         console.log("====================================")
-
-        console.log("Artist(s) Name: " + userSearch);
+console.log(data.tracks.items[0].artists[0].name)
+        console.log("Artist(s) Name: " + data.tracks.items[0].artists[0].name);
 
         console.log("song name: " + data.tracks.items[0].name + "\r\n");
 
@@ -188,7 +188,7 @@ function getSpotify(songName){
 
         console.log("Album: " + data.tracks.items[0].album.name + "\r\n");
 
-        var logSong="=====Spotify===" + "\nArtist: " + userSearch
+        var logSong="=====Spotify===" + "\nArtist: " +  data.tracks.items[0].artists[0].name+"song name: " + data.tracks.items[0].name + "\r\n"+"Song Preview Link: " + data.tracks.items[0].href + "\r\n"+"Album: " + data.tracks.items[0].album.name + "\r\n"
         
 
      
