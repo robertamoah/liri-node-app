@@ -164,23 +164,23 @@ function logResult(data){
 
 
 
-console.log(keys)
+// console.log(keys)
 // spotiy/////////////////////////////////////////////////
 function getSpotify(songName){
     var spotify=new Spotify(keys.spotify);
 
-    if(!songName){
-        songName= "The sign";
+    if(!userSearch===''){
+        userSearch= "The sign";
 
     };
-    spotify.search({type: "track", query:songName}, function (err,data){
+    spotify.search({type: "track", query:userSearch}, function (err,data){
         if(err){
             return console.log("Error occured: "+ err); 
         }
 
         console.log("====================================")
 
-        console.log("Artist(s) Name: " + data.tracks.items([0].album.artists[0].name + "\r\n"));
+        console.log("Artist(s) Name: " + userSearch);
 
         console.log("song name: " + data.tracks.items[0].name + "\r\n");
 
@@ -188,7 +188,10 @@ function getSpotify(songName){
 
         console.log("Album: " + data.tracks.items[0].album.name + "\r\n");
 
-        var logSong="=====Spotify===" + "\nArtist: " + data.tracks.items[0].album.artists[0].name+
+        var logSong="=====Spotify===" + "\nArtist: " + userSearch
+        
+
+     
 
         fs.appendFile("log.txt", logSong, function(err){
 
